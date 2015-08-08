@@ -1,17 +1,16 @@
 ---
-output: html_document
+output: pdf_document
 ---
-
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 options(scipen = 1)
 echo = TRUE
 ```
----
-title: "Analysis on the Effect of Severe Weather Events on Public Health and Economy in the United States"
+
+Analysis on the Effect of Severe Weather Events on Public Health and Economy in the United States
+==================================================================================================
 author: "Hetian Chen"
 date: "Aug 3, 2015"
----
 
 ## Synopsis
 The goal of this analysis is to explore the relationship between severe weather events with public heath and economy. The data are collected from U.S. National Oceanic and Atmospheric Administration's (NOAA) storm database from 1950 to 2011. According to the analysis, tornado is most harmful with respect to population health. Besides, flood and drought have the worest economic consequences.
@@ -24,10 +23,12 @@ bunzip2("repdata-data-StormData.csv.bz2",overwrite=T,remove=F)
 data = read.csv(file = "repdata-data-StormData.csv",stringsAsFactors = FALSE)
 dim(data)
 ```
+
 There're 902297 rows and 37 columns in the file. The first two rows are shown below.
 ```{r}
 head(data,n=2)
 ```
+
 2. explore the distribution of data collected in year.
 ```{r}
 data$year <- as.numeric(format(as.Date(data$BGN_DATE, format = "%m/%d/%Y %H:%M:%S"), "%Y"))
